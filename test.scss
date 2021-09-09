@@ -1,0 +1,85 @@
+// міксини
+
+@mixin flex($fd, $fw, $jc, $ai) {
+  display: flex;
+  flex-direction: $fd;
+  flex-wrap: $fw;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+@mixin margin($mt, $mr, $mb, $ml) {
+  margin-top: $mt;
+  margin-right: $mr;
+  margin-bottom: $mb;
+  margin-left: $ml;
+}
+
+@mixin padding($pt, $pr, $pb, $pl) {
+  padding-top: $pt;
+  padding-right: $pr;
+  padding-bottom: $pb;
+  padding-left: $pl;
+}
+
+@mixin font($fw, $fs, $lh, $ls) {
+  font-weight: $fw;
+  font-size: $fs;
+  line-height: $lh;
+  letter-spacing: $ls;
+}
+
+@mixin transition($one, $two, $three, $duration, $function) {
+  transition-property: $one, $two, $three;
+  transition-duration: $duration;
+  transition-timing-function: $function;
+}
+
+// міксин на параметри сітки
+@mixin sizeGrid($number, $margin) {
+  flex-basis: calc(100% / #{$number} - 2 * #{$margin});
+}
+
+// плейсхолдер
+%visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+// секція
+.section {
+  @include padding();
+
+  &__label-title {
+  }
+
+  &__title {
+  }
+}
+
+// контейнер
+.container {
+  width: ;
+
+  @include margin(null, auto, null, auto);
+  @include padding();
+}
+
+// сітка
+.grid {
+  list-style: none;
+  @include flex(null, wrap, null, null);
+
+  @include margin(-15px, -15px, -15px, -15px);
+
+  &__item {
+    @include margin(15px, 15px, 15px, 15px);
+
+    &--features {
+      @include sizeGrid(2, 15px);
+    }
+  }
+}
